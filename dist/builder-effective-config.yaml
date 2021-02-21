@@ -1,9 +1,0 @@
-directories:
-  output: dist
-  buildResources: build
-appId: fun.waddleon.client
-productName: Waddle On Client
-asar: false
-win:
-  publish: github
-electronVersion: 6.1.7

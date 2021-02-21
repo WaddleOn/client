@@ -20,8 +20,6 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName));
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 autoUpdater.checkForUpdatesAndNotify();
 let mainWindow;
 
@@ -45,22 +43,17 @@ function createWindow () {
   clearCache();
   mainWindow.loadURL('https://client.waddleon.fun/');
 
-  // RICH PRESENCE START
   const clientId = '793567986841026561'; DiscordRPC.register(clientId); const rpc = new DiscordRPC.Client({ transport: 'ipc' }); const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
-      details: `Waddle On`, 
-      state: `Desktop Client`, 
+      details: `Desktop Client`, 
+      state: `Waddling around and making new friends`, 
       startTimestamp, 
-      largeImageKey: `main-logo`//, 
-      //largeImageText: "LARGE IMAGE TEXT", 
-      //smallImageKey: "favicon_512", 
-      //smallImageText: "SMALL IMAGE TEXT"
+      largeImageKey: `newlogo`, 
+      smallImageKey: "newlogo", 
     });
   });
   rpc.login({ clientId }).catch(console.error);
-
-  //mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     mainWindow = null
@@ -70,14 +63,10 @@ function createWindow () {
 app.on('ready', createWindow);
 
 app.on('window-all-closed', function () {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') app.quit();
 });
 
 app.on('activate', function () {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
 });
 
