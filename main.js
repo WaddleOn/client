@@ -41,7 +41,7 @@ function createWindow () {
 
   mainWindow.setMenu(null);
   clearCache();
-  mainWindow.loadURL('https://client.waddleon.fun/');
+  mainWindow.loadURL('https://client.cpome.ga/');
 
   const clientId = '793567986841026561'; DiscordRPC.register(clientId); const rpc = new DiscordRPC.Client({ transport: 'ipc' }); const startTimestamp = new Date();
   rpc.on('ready', () => {
@@ -50,7 +50,7 @@ function createWindow () {
       state: `Waddling around and making new friends`, 
       startTimestamp, 
       largeImageKey: `newlogo`, 
-      smallImageKey: "newlogo", 
+      #smallImageKey: "", 
     });
   });
   rpc.login({ clientId }).catch(console.error);
