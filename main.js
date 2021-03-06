@@ -41,7 +41,7 @@ function createWindow () {
 
   mainWindow.setMenu(null);
   clearCache();
-  mainWindow.loadURL('https://client.cpome.ga/');
+  mainWindow.loadURL('https://www.cpome.ga/client');
 
   const clientId = '793567986841026561'; DiscordRPC.register(clientId); const rpc = new DiscordRPC.Client({ transport: 'ipc' }); const startTimestamp = new Date();
   rpc.on('ready', () => {
